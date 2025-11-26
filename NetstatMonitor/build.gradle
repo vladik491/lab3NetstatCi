@@ -15,6 +15,14 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.example.Main'
+        )
+    }
+}
+
 test {
     useJUnitPlatform()
     // Эта настройка заставит Gradle показывать текст ошибки прямо в консоли
