@@ -27,14 +27,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       if: runner.os != 'Windows'
-      run: chmod +x gradlew
+      run: chmod +x NetstatMonitor/gradlew
 
     - name: Build and Test
-      run: ./gradlew build
+      run: ./NetstatMonitor/gradlew -p NetstatMonitor build
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: netstat-app-${{ matrix.os }}
-        path: build/libs/*.jar
+        path: NetstatMonitor/build/libs/*.jar
         retention-days: 1
